@@ -9,7 +9,6 @@ test("SongAI Landing Page", async ({ page }) => {
   const landing = new LandingPage(page);
   await page.goto(testdata["siteURL"], { waitUntil: "domcontentloaded" });
 
-  // ── Navigation Bar ────────────────────────────────────────────────────────
   await expect(landing.navLogo).toBeVisible();
   console.log("Logo is visible");
 
@@ -51,7 +50,6 @@ test("SongAI Landing Page", async ({ page }) => {
   console.log("Clicked nav Create Song CTA");
   await page.goto(testdata["siteURL"], { waitUntil: "domcontentloaded" });
 
-  // ── Hero Section ──────────────────────────────────────────────────────────
   await expect(landing.heroHeadline).toBeVisible();
   console.log("Hero headline is visible");
 
@@ -61,7 +59,6 @@ test("SongAI Landing Page", async ({ page }) => {
   await expect(landing.heroMascot).toBeVisible();
   console.log("Hero mascot is visible");
 
-  // ── Hero Input / CTA Bar ──────────────────────────────────────────────────
   await expect(landing.heroInput).toBeVisible();
   console.log("Hero input is visible");
 
@@ -75,11 +72,9 @@ test("SongAI Landing Page", async ({ page }) => {
   console.log("Clicked Create Your Song button");
   await page.waitForLoadState("domcontentloaded");
 
-  // Verify the typed text is visible on the create/chat screen
   await expect(page.locator('//*[contains(.,"Create a 30 seconds song for my anniversary")]').first()).toBeVisible();
   console.log("Input text is visible on the create screen");
 
-  // Navigate back to home
   await page.goBack();
   await page.waitForLoadState("domcontentloaded");
 
@@ -89,13 +84,11 @@ test("SongAI Landing Page", async ({ page }) => {
   await landing.heroWatchLink.click();
   console.log("Clicked Watch Explainer button");
 
-  // Wait briefly for video modal to open, then close it
   await page.waitForTimeout(2000);
   await expect(landing.videoModalCloseBtn).toBeVisible();
   await landing.videoModalCloseBtn.click();
   console.log("Closed video modal");
 
-  // ── Song Cards Section ────────────────────────────────────────────────────
   await landing.songCardsHeading.scrollIntoViewIfNeeded();
 
   await expect(landing.songCardsHeading).toBeVisible();
@@ -116,8 +109,7 @@ test("SongAI Landing Page", async ({ page }) => {
   await expect(landing.songCardFirstArtist).toBeVisible();
   console.log("First song card artist is visible");
 
-  // TODO: song card play is skipped — marquee animation makes the button unstable
-  // // Pause marquee animation so the card is stable, then hover to reveal the play button
+  
   // await page.evaluate(() => {
   //   document.querySelectorAll('[class*="marquee"], [class*="animate-"]').forEach(el => {
   //     el.style.animationPlayState = "paused";
@@ -136,7 +128,6 @@ test("SongAI Landing Page", async ({ page }) => {
   // expect(isSongPlaying).toBe(true);
   // console.log("Song tile is playing - audio confirmed active");
 
-  // ── How It Works Section ──────────────────────────────────────────────────
   await landing.howItWorksHeading.scrollIntoViewIfNeeded();
 
   await expect(landing.howItWorksEyebrow).toBeVisible();
@@ -175,19 +166,16 @@ test("SongAI Landing Page", async ({ page }) => {
   await expect(landing.howStep04Desc).toBeVisible();
   console.log("Step 4 description is visible");
 
-  // ── Say It Your Way Section ───────────────────────────────────────────────
   await landing.sayItHeading.scrollIntoViewIfNeeded();
 
   await expect(landing.sayItHeading).toBeVisible();
   console.log("Say It Your Way section heading is visible");
 
-  // ── Audio Player Section ──────────────────────────────────────────────────
   await landing.audioSectionHeading.scrollIntoViewIfNeeded();
 
   await expect(landing.audioSectionHeading).toBeVisible();
   console.log("Audio section heading 'Real songs. Real emotion.' is visible");
 
-  // ── Gift Section ──────────────────────────────────────────────────────────
   await landing.giftHeading.scrollIntoViewIfNeeded();
 
   await expect(landing.giftEyebrow).toBeVisible();
@@ -199,7 +187,6 @@ test("SongAI Landing Page", async ({ page }) => {
   await expect(landing.giftBodyCopy).toBeVisible();
   console.log("Gift body copy is visible");
 
-  // ── Gift Package Section ──────────────────────────────────────────────────
   await landing.giftPkgHeading.scrollIntoViewIfNeeded();
 
   await expect(landing.giftPkgHeading).toBeVisible();
@@ -217,7 +204,6 @@ test("SongAI Landing Page", async ({ page }) => {
   await expect(landing.giftPkgVideoLabel).toBeVisible();
   console.log("Video Canvas label is visible");
 
-  // ── Testimonials Section ──────────────────────────────────────────────────
   await landing.testimonialsHeading.scrollIntoViewIfNeeded();
 
   await expect(landing.testimonialsEyebrow).toBeVisible();
@@ -241,7 +227,6 @@ test("SongAI Landing Page", async ({ page }) => {
   await expect(landing.testimonialsMemorial).toBeVisible();
   console.log("Memorial tag is visible");
 
-  // ── Pricing Section ───────────────────────────────────────────────────────
   await landing.pricingHeading.scrollIntoViewIfNeeded();
 
   await expect(landing.pricingHeading).toBeVisible();
@@ -268,7 +253,6 @@ test("SongAI Landing Page", async ({ page }) => {
   await expect(landing.plan3CTA).toBeVisible();
   console.log("Plan 3 CTA is visible");
 
-  // ── FAQ Section ───────────────────────────────────────────────────────────
   await landing.faqHeading.scrollIntoViewIfNeeded();
 
   await expect(landing.faqHeading).toBeVisible();
@@ -310,7 +294,6 @@ test("SongAI Landing Page", async ({ page }) => {
   await landing.faqQuestion6.click();
   console.log("Clicked FAQ question 6 to expand");
 
-  // ── Hero Input: Create song flow (end-to-end) ─────────────────────────────
   await page.evaluate(() => window.scrollTo(0, 0));
 
   await landing.heroInput.scrollIntoViewIfNeeded();
