@@ -1,0 +1,8 @@
+node_modules/
+test-results/
+playwright-report/
+.auth/
+.env
+.env.local
+TestData.json
+package-lock.json

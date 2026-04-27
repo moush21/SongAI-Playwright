@@ -1,0 +1,21 @@
+{
+  "name": "songai-playwright",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "test":           "npx playwright test",
+    "test:landing":   "npx playwright test --project=landing",
+    "test:login":     "npx playwright test --project=login",
+    "test:signup":    "npx playwright test --project=signup",
+    "test:dashboard": "npx playwright test --project=dashboard",
+    "test:song":      "npx playwright test --project=song-detail",
+    "test:create":    "npx playwright test --project=new-song-creation",
+    "test:headed":    "npx playwright test --headed",
+    "test:debug":     "npx playwright test --debug",
+    "report":         "npx playwright show-report"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.43.0",
+    "dotenv": "^16.0.0"
+  }
+}
