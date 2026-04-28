@@ -10,43 +10,43 @@ test("SongAI Login Page", async ({ page }) => {
 
   await page.goto(testdata["siteURL"] + "auth/login", { waitUntil: "domcontentloaded" });
 
-  await expect(page).toHaveURL(/auth\/login/);
+  await expect.soft(page).toHaveURL(/auth\/login/);
   console.log("Login page URL is correct");
 
-  await expect(loginPage.loginPageTitle).toBeVisible();
+  await expect.soft(loginPage.loginPageTitle).toBeVisible();
   console.log("Login page title is visible");
 
-  await expect(loginPage.loginPageSubtitle).toBeVisible();
+  await expect.soft(loginPage.loginPageSubtitle).toBeVisible();
   console.log("Login page subtitle is visible");
 
-  await expect(loginPage.orDivider).toBeVisible();
+  await expect.soft(loginPage.orDivider).toBeVisible();
   console.log("Or divider is visible");
 
-  await expect(loginPage.backToHomeLink).toBeVisible();
+  await expect.soft(loginPage.backToHomeLink).toBeVisible();
   console.log("Back to home link is visible");
 
-  await expect(loginPage.emailLabel).toBeVisible();
+  await expect.soft(loginPage.emailLabel).toBeVisible();
   console.log("Email label is visible");
 
-  await expect(loginPage.emailInput).toBeVisible();
+  await expect.soft(loginPage.emailInput).toBeVisible();
   console.log("Email input is visible");
 
-  await expect(loginPage.passwordLabel).toBeVisible();
+  await expect.soft(loginPage.passwordLabel).toBeVisible();
   console.log("Password label is visible");
 
-  await expect(loginPage.passwordInput).toBeVisible();
+  await expect.soft(loginPage.passwordInput).toBeVisible();
   console.log("Password input is visible");
 
-  await expect(loginPage.signUpText).toBeVisible();
+  await expect.soft(loginPage.signUpText).toBeVisible();
   console.log("Sign up text is visible");
 
-  await expect(loginPage.signUpLink).toBeVisible();
+  await expect.soft(loginPage.signUpLink).toBeVisible();
   console.log("Sign up link is visible");
 
-  await expect(loginPage.signInBtnDisabled).toBeVisible();
+  await expect.soft(loginPage.signInBtnDisabled).toBeVisible();
   console.log("Sign In button is disabled when fields are empty");
 
-  await expect(loginPage.passwordToggleBtn).toBeVisible();
+  await expect.soft(loginPage.passwordToggleBtn).toBeVisible();
   console.log("Password toggle button is visible");
 
   await loginPage.togglePasswordVisibility();
@@ -56,43 +56,43 @@ test("SongAI Login Page", async ({ page }) => {
   console.log("Clicked password toggle again — password hidden");
 
   await loginPage.fillEmail(testdata["username"]);
-  await expect(loginPage.signInBtnDisabled).toBeVisible();
+  await expect.soft(loginPage.signInBtnDisabled).toBeVisible();
   console.log("Sign In button is disabled with only email filled");
 
   await loginPage.emailInput.clear();
   await loginPage.fillPassword(testdata["password"]);
-  await expect(loginPage.signInBtnDisabled).toBeVisible();
+  await expect.soft(loginPage.signInBtnDisabled).toBeVisible();
   console.log("Sign In button is disabled with only password filled");
 
   await loginPage.emailInput.clear();
   await loginPage.passwordInput.clear();
   await loginPage.fillEmail(testdata["username"]);
   await loginPage.fillPassword(testdata["password"]);
-  await expect(loginPage.signInBtnDisabled).not.toBeVisible();
+  await expect.soft(loginPage.signInBtnDisabled).not.toBeVisible();
   console.log("Sign In button is enabled when both fields are filled");
 
   await loginPage.fillEmail("invalid@example.com");
   await loginPage.fillPassword("wrongpassword123");
   await loginPage.clickSignIn();
   await page.waitForTimeout(2000);
-  await expect(page).toHaveURL(/auth\/login/);
+  await expect.soft(page).toHaveURL(/auth\/login/);
   console.log("Invalid login stays on login page");
 
   await loginPage.clickBackToHome();
-  await expect(page).toHaveURL(/songai-frontend\.vercel\.app\/?$/);
+  await expect.soft(page).toHaveURL(/songai-frontend\.vercel\.app\/?$/);
   console.log("Back to home navigates to landing page");
   await page.goBack();
   await page.waitForLoadState("domcontentloaded");
 
   await loginPage.clickSignUp();
-  await expect(page).toHaveURL(/auth\/signup/);
+  await expect.soft(page).toHaveURL(/auth\/signup/);
   console.log("Sign up link navigates to signup page");
   await page.goBack();
   await page.waitForLoadState("domcontentloaded");
 
   await loginPage.login(testdata["username"], testdata["password"]);
   await page.waitForLoadState("domcontentloaded");
-  await expect(page).not.toHaveURL(/auth\/login/);
+  await expect.soft(page).not.toHaveURL(/auth\/login/);
   console.log("Valid login navigates away from login page");
 
 });

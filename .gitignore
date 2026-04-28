@@ -5,4 +5,5 @@ playwright-report/
 .env
 .env.local
 TestData.json
+GeneratedTestData.json
 package-lock.json
