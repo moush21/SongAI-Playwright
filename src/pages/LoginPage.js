@@ -4,48 +4,29 @@ export default class LoginPage {
   constructor(page) {
     this.page = page;
 
-    // Page verification
     this.loginPageTitle = page.locator(LoginPageElements.loginPageTitle);
     this.loginPageSubtitle = page.locator(LoginPageElements.loginPageSubtitle);
-
-    // Back to home
-    this.backToHomeLink=page.locator(LoginPageElements.backToHomeLink);
-
-    // Email input
-    this.emailLabel= page.locator(LoginPageElements.emailLabel);
-    this.emailInput= page.locator(LoginPageElements.emailInput);
-
-    // Password input
-    this.passwordLabel= page.locator(LoginPageElements.passwordLabel);
-    this.passwordInput= page.locator(LoginPageElements.passwordInput);
-    this.passwordToggleBtn= page.locator(LoginPageElements.passwordToggleBtn);
-
-    // Sign In button
-    this.signInBtn         = page.locator(LoginPageElements.signInBtn);
+    this.backToHomeLink = page.locator(LoginPageElements.backToHomeLink);
+    this.emailLabel = page.locator(LoginPageElements.emailLabel);
+    this.emailInput = page.locator(LoginPageElements.emailInput);
+    this.passwordLabel = page.locator(LoginPageElements.passwordLabel);
+    this.passwordInput = page.locator(LoginPageElements.passwordInput);
+    this.passwordToggleBtn = page.locator(LoginPageElements.passwordToggleBtn);
+    this.signInBtn = page.locator(LoginPageElements.signInBtn);
     this.signInBtnDisabled = page.locator(LoginPageElements.signInBtnDisabled);
-
-    // Sign up link
-    this.signUpText        = page.locator(LoginPageElements.signUpText);
-    this.signUpLink        = page.locator(LoginPageElements.signUpLink);
-
-    // Divider
-    this.orDivider         = page.locator(LoginPageElements.orDivider);
-
-    // ── Forgot Password elements ───────────────────────────────────────────────
-    this.forgotPasswordLink       = page.locator(LoginPageElements.forgotPasswordLink);
-    this.forgotPasswordTitle      = page.locator(LoginPageElements.forgotPasswordTitle);
-    this.forgotPasswordSubtitle   = page.locator(LoginPageElements.forgotPasswordSubtitle);
+    this.signUpText = page.locator(LoginPageElements.signUpText);
+    this.signUpLink = page.locator(LoginPageElements.signUpLink);
+    this.orDivider = page.locator(LoginPageElements.orDivider);
+    this.forgotPasswordLink = page.locator(LoginPageElements.forgotPasswordLink);
+    this.forgotPasswordTitle = page.locator(LoginPageElements.forgotPasswordTitle);
+    this.forgotPasswordSubtitle = page.locator(LoginPageElements.forgotPasswordSubtitle);
     this.forgotPasswordBackToHome = page.locator(LoginPageElements.forgotPasswordBackToHome);
     this.forgotPasswordEmailLabel = page.locator(LoginPageElements.forgotPasswordEmailLabel);
     this.forgotPasswordEmailInput = page.locator(LoginPageElements.forgotPasswordEmailInput);
-    this.sendResetLinkBtn         = page.locator(LoginPageElements.sendResetLinkBtn);
+    this.sendResetLinkBtn = page.locator(LoginPageElements.sendResetLinkBtn);
     this.forgotPasswordSignInLink = page.locator(LoginPageElements.forgotPasswordSignInLink);
     this.forgotPasswordSignInText = page.locator(LoginPageElements.forgotPasswordSignInText);
   }
-
-  
-
-  // ── Actions ────────────────────────────────────────────────────────────────
 
   async navigateTo(url) {
     await this.page.goto(url, { waitUntil: 'domcontentloaded' });
@@ -96,31 +77,29 @@ export default class LoginPage {
     return await btn.isEnabled();
   }
 
-  // ── Forgot Password Actions ────────────────────────────────────────────────
-
-    async clickForgotPassword() {
+  async clickForgotPassword() {
     await this.forgotPasswordLink.click();
-    }
+  }
 
-    async fillForgotPasswordEmail(email) {
+  async fillForgotPasswordEmail(email) {
     await this.forgotPasswordEmailInput.clear();
     await this.forgotPasswordEmailInput.fill(email);
-    }
+  }
 
-    async clickSendResetLink() {
+  async clickSendResetLink() {
     await this.sendResetLinkBtn.click();
-    }
+  }
 
-    async clickForgotPasswordSignIn() {
+  async clickForgotPasswordSignIn() {
     await this.forgotPasswordSignInLink.click();
-    }
+  }
 
-    async clickForgotPasswordBackToHome() {
+  async clickForgotPasswordBackToHome() {
     await this.forgotPasswordBackToHome.click();
-    }
+  }
 
-    async isSendResetLinkBtnEnabled() {
+  async isSendResetLinkBtnEnabled() {
     return await this.sendResetLinkBtn.isEnabled();
-    }
+  }
 
 }

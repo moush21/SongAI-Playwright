@@ -4,22 +4,17 @@ export default class SignupPage {
   constructor(page) {
     this.page = page;
 
-    // Page verification
     this.signupPageTitle    = page.locator(SignupPageElements.signupPageTitle);
     this.signupPageSubtitle = page.locator(SignupPageElements.signupPageSubtitle);
 
-    // Back to home
     this.backToHomeLink     = page.locator(SignupPageElements.backToHomeLink);
 
-    // SSO buttons
     this.googleBtn          = page.locator(SignupPageElements.googleBtn);
     this.facebookBtn        = page.locator(SignupPageElements.facebookBtn);
     this.appleBtn           = page.locator(SignupPageElements.appleBtn);
 
-    // Divider
     this.orDivider          = page.locator(SignupPageElements.orDivider);
 
-    // Form fields
     this.nameLabel          = page.locator(SignupPageElements.nameLabel);
     this.nameInput          = page.locator(SignupPageElements.nameInput);
     this.emailLabel         = page.locator(SignupPageElements.emailLabel);
@@ -28,22 +23,16 @@ export default class SignupPage {
     this.passwordInput      = page.locator(SignupPageElements.passwordInput);
     this.passwordToggleBtn  = page.locator(SignupPageElements.passwordToggleBtn);
 
-    // Terms
     this.termsCheckbox      = page.locator(SignupPageElements.termsCheckbox);
     this.termsLabel         = page.locator(SignupPageElements.termsLabel);
 
-    // Submit button
     this.createAccountBtn   = page.locator(SignupPageElements.createAccountBtn);
 
-    // Sign in link
     this.signInText         = page.locator(SignupPageElements.signInText);
     this.signInLink         = page.locator(SignupPageElements.signInLink);
 
-    // Error message
     this.errorMessage       = page.locator(SignupPageElements.errorMessage);
   }
-
-  // ── Actions ──────────────────────────────────────────────────────────────
 
   async navigateTo(url) {
     await this.page.goto(url, { waitUntil: 'domcontentloaded' });
