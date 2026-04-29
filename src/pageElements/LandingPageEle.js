@@ -19,7 +19,7 @@ export const LandingPageElements = {
   heroMascot: '//img[@alt="SongAI mascot"]',
 
   heroInput: '//input[@placeholder="Who\'s this song for?"]',
-  heroCreateBtn: '//button[contains(text(),"Create Your Song")]',
+  heroCreateBtn: '//button[contains(.,"Create Your Song")]',
   heroWatchLink: '//button[contains(.,"Watch Explainer")]',
 
   songCardsHeading: '//h2[contains(.,"Real stories, turned into real songs")]',

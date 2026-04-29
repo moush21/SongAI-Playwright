@@ -49,7 +49,7 @@ export default defineConfig({
       testMatch: "**/tests/dashboard.spec.js",
       use: {
         ...devices["Desktop Chrome"],
-        storageState: ".auth/user.json",
+         use: { ...devices['Desktop Chrome'] },
       },
     },
     {
