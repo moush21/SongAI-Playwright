@@ -62,6 +62,9 @@ test("SongAI Landing Page", async ({ page }) => {
   await expect.soft(landing.heroInput).toBeVisible();
   console.log("Hero input is visible");
 
+  await expect.soft(landing.heroCreateBtn).toBeDisabled();
+  console.log("Create Your Song button is disabled when input is empty");
+
   await landing.heroInput.fill("Create a 30 seconds song for my anniversary");
   console.log("Filled hero input");
 

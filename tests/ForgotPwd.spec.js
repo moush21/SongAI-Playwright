@@ -49,9 +49,10 @@ test("SongAI Forgot Password Page", async ({ page }) => {
   await loginPage.clickSendResetLink();
   await expect.soft(page).toHaveURL(/auth\/forgot-password/);
   console.log("Empty email submit stays on forgot password page");
-
-  await loginPage.fillForgotPasswordEmail("invalidemail");
+   await loginPage.fillForgotPasswordEmail("invalidemail");
   await loginPage.clickSendResetLink();
+
+  
   await expect.soft(page).toHaveURL(/auth\/forgot-password/);
   console.log("Invalid email format stays on forgot password page");
 
