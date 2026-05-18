@@ -10,6 +10,8 @@ export default class DashboardPage {
     this.songAILogoSidebar = page.locator(DashboardPageElements.songAILogoSidebar);
     this.searchBtn = page.locator(DashboardPageElements.searchBtn);
 
+
+
     this.createLabel = page.locator(DashboardPageElements.createLabel);
     this.createNewSongSidebar = page.locator(DashboardPageElements.createNewSongSidebar);
 
@@ -17,14 +19,15 @@ export default class DashboardPage {
     this.yourLatestSongBtn = page.locator(DashboardPageElements.yourLatestSongBtn);
     this.yourSongsBtn = page.locator(DashboardPageElements.yourSongsBtn);
 
-    this.giftingLabel = page.locator(DashboardPageElements.giftingLabel);
-    this.sendASongLink = page.locator(DashboardPageElements.sendASongLink);
-    this.yourGiftsLink = page.locator(DashboardPageElements.yourGiftsLink);
+    this.giftingLabel= page.locator(DashboardPageElements.giftingLabel);
+    this.sendASongLink= page.locator(DashboardPageElements.sendASongLink);
+    this.yourGiftsLink= page.locator(DashboardPageElements.yourGiftsLink);
 
-    this.planCard = page.locator(DashboardPageElements.planCard);
-    this.planName = page.locator(DashboardPageElements.planName);
+    this.planCard =page.locator(DashboardPageElements.planCard);
+    this.planName =page.locator(DashboardPageElements.planName);
     this.planSongsRemaining = page.locator(DashboardPageElements.planSongsRemaining);
     this.upgradePlanLink = page.locator(DashboardPageElements.upgradePlanLink);
+
 
     this.userAvatar = page.locator(DashboardPageElements.userAvatar);
     this.userNameDisplay = page.locator(DashboardPageElements.userNameDisplay);
@@ -34,6 +37,7 @@ export default class DashboardPage {
     this.createNewSongCard = page.locator(DashboardPageElements.createNewSongCard);
     this.createNewSongCardText = page.locator(DashboardPageElements.createNewSongCardText);
     this.noSongsMessage = page.locator(DashboardPageElements.noSongsMessage);
+
 
     this.settingsBtn = page.locator(DashboardPageElements.settingsBtn);
     this.myAccountOption = page.locator(DashboardPageElements.myAccountOption);
@@ -69,9 +73,15 @@ export default class DashboardPage {
     this.supportCommonQuestions = page.locator(DashboardPageElements.supportCommonQuestions);
   }
 
+
+
+
+
   async navigateTo(url) {
     await this.page.goto(url, { waitUntil: 'domcontentloaded' });
   }
+
+
 
   async clickSettings() {
     await this.settingsBtn.click();
@@ -88,6 +98,8 @@ export default class DashboardPage {
   async clickYourSongs() {
     await this.yourSongsBtn.click();
   }
+
+
 
   async clickSendASong() {
     await this.sendASongLink.click();
@@ -121,6 +133,8 @@ export default class DashboardPage {
     await this.notificationsOption.click();
   }
 
+
+  
   async clickPrivacy() {
     await this.privacyOption.click();
   }
@@ -128,6 +142,8 @@ export default class DashboardPage {
   async clickSupport() {
     await this.supportOption.click();
   }
+
+
 
   async clickBackToDashboard() {
     await this.backToDashboardLink.click();

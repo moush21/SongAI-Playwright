@@ -9,9 +9,9 @@ export const SignupPageElements = {
 
   orDivider: '(//span[contains(@class,"text-text-muted") and contains(.,"or continue with email")])',
   nameLabel: '(//label[contains(.,"Your name")])',
-  nameInput: '(//input[@placeholder="Neil Morecraft"])[1]',
-  emailLabel: '(//label[contains(.,"Email address")])',
-  emailInput: '(//input[@placeholder="you@example.com"][@type="email"])',
+  nameInput:'(//input[@placeholder="Neil Morecraft"])[1]',
+  emailLabel:'(//label[contains(.,"Email address")])',
+  emailInput:'(//input[@placeholder="you@example.com"][@type="email"])',
   passwordLabel: '(//label[contains(.,"Password")])',
   passwordInput: '(//input[@placeholder="Create a password"])',
   passwordToggleBtn: '(//input[@placeholder="Create a password"]/following-sibling::button[@type="button"])',

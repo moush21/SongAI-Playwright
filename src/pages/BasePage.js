@@ -8,15 +8,16 @@ class BasePage {
 
   async goto(path = "/") {
     await this.page.goto(path);
-    await this.page.waitForLoadState("domcontentloaded");
+     await this.page.waitForLoadState("domcontentloaded");
   }
 
   async waitForNetworkIdle() {
-    await this.page.waitForLoadState("networkidle");
+     await this.page.waitForLoadState("networkidle");
   }
 
   async scrollToBottom() {
     await this.page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+
     await this.page.waitForTimeout(500);
   }
 
@@ -30,6 +31,7 @@ class BasePage {
 
   async goBack() {
     await this.page.goBack();
+    
     await this.page.waitForLoadState("domcontentloaded");
   }
 

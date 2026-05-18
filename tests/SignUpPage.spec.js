@@ -44,19 +44,24 @@ test("SongAI Signup Page", async ({ page }) => {
   await expect.soft(signupPage.nameLabel).toBeVisible();
   console.log("Name label is visible");
 
+
+
   await expect.soft(signupPage.emailLabel).toBeVisible();
   console.log("Email label is visible");
 
   await expect.soft(signupPage.passwordLabel).toBeVisible();
   console.log("Password label is visible");
 
+
   await expect.soft(signupPage.nameInput).toBeVisible();
-  console.log("Name input is visible");
+   console.log("Name input is visible");
 
   await expect.soft(signupPage.emailInput).toBeVisible();
   console.log("Email input is visible");
 
+
   await expect.soft(signupPage.passwordInput).toBeVisible();
+  
   console.log("Password input is visible");
 
   await expect.soft(signupPage.passwordToggleBtn).toBeVisible();
